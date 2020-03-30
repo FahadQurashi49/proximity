@@ -5,14 +5,14 @@ let validateEmail = (email) => {
     return re.test(email);
 }
 
-let ShopSchema: Schema = new Schema({
-    title: {
+let CustomerSchema: Schema = new Schema({
+    name: {
         type: String,
         minlength: [2, 'Name must be of atleast 2 characters'],
         maxlength: [50, 'Name must be of atmost 50 characters'],
         required: [true, 'title is required']
     },
-    description: {
+    last_name: {
         type: String,
         required: false
     },
@@ -24,10 +24,6 @@ let ShopSchema: Schema = new Schema({
         validate: [validateEmail, 'Please fill a valid email address'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
-    online: {
-        type: Boolean,
-        required: [true, 'online is required']
-    },
     phone: {
         type: String,
         minlength: [9, 'Name must be of atleast 9 characters'],
@@ -38,4 +34,4 @@ let ShopSchema: Schema = new Schema({
 
 });
 
-export default model('shop', ShopSchema);
+export default model('customer', CustomerSchema);
