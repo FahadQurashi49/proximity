@@ -38,8 +38,17 @@ let OrderSchema: Schema = new Schema({
         type: Number,
         required: [true, 'order status is required']
     },
-    
-
+    products: [{
+        product: {
+            type: Schema.Types.ObjectId,
+            ref: 'product',
+            required: [true, 'product is required']
+        },
+        quantity: {
+            type: Number,
+            required: [true, 'quantity is required']
+        }
+    }]
 });
 
 export default model('order', OrderSchema);
