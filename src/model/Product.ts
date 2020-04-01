@@ -1,4 +1,6 @@
 import {Schema, model} from 'mongoose';
+import Shop from '../model/Shop';
+
 
 function getPrice(num){
     return (num/100).toFixed(2);
@@ -28,11 +30,10 @@ let ProductSchema: Schema = new Schema({
         type: Number,
         get: getPrice,
         set: setPrice
-        // remove Rs. $ etc on client end
     },
     inStock: {
         type: Boolean,
-        required: [true, 'product date is required']
+        required: [true, 'inStock is required']
     }
 });
 

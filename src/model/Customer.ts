@@ -10,7 +10,7 @@ let CustomerSchema: Schema = new Schema({
         type: String,
         minlength: [2, 'Name must be of atleast 2 characters'],
         maxlength: [50, 'Name must be of atmost 50 characters'],
-        required: [true, 'title is required']
+        required: [true, 'name is required']
     },
     last_name: {
         type: String,

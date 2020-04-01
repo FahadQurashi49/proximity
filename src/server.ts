@@ -5,6 +5,8 @@ import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
 
 import shopRouter from './router/ShopRouter';
+import customerRouter from './router/CustomerRouter';
+import productRouter from './router/ProductRouter';
 
 // Creates and configures an ExpressJS web server.
 class Server {
@@ -38,6 +40,8 @@ class Server {
   // Configure API endpoints.
   private routes(): void {
     this.express.use('/api/v1/shop', shopRouter);
+    this.express.use('/api/v1/customer', customerRouter);
+    this.express.use('/api/v1/product', productRouter);
     this.express.use((err, req, res, next) => {
       let error = {
         error: err.message,
