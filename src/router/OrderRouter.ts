@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import Product from '../model/Product';
+import Order from '../model/Order';
 
-export class ProductRouter {
+export class OrderRouter {
     public router: Router;
     constructor() {
         this.router = Router();
@@ -9,34 +9,34 @@ export class ProductRouter {
     }
 
     public createOne(req: Request, res: Response, next: NextFunction) {
-        Product.create(req.body).then((product) => {
-            res.json(product);
+        Order.create(req.body).then((order) => {
+            res.json(order);
         }).catch(next);
     }
     // just for development
     public getAll(req: Request, res: Response, next: NextFunction) {
-        Product.find({}).then((products) => {
-            res.json(products);
+        Order.find({}).then((orders) => {
+            res.json(orders);
         }).catch(next);
     }
 
     public getOne(req: Request, res: Response, next: NextFunction) {
-        Product.findById(req.params.id).then((product) => {
-            res.json(product);
+        Order.findById(req.params.id).then((order) => {
+            res.json(order);
         }).catch(next);
     }
 
     public updateOne(req: Request, res: Response, next: NextFunction) {
-        Product.findOneAndUpdate({ _id: req.params.id }, req.body).then(() => {
-            Product.findOne({ _id: req.params.id }).then((product) => {
-                res.json(product);
+        Order.findOneAndUpdate({ _id: req.params.id }, req.body).then(() => {
+            Order.findOne({ _id: req.params.id }).then((order) => {
+                res.json(order);
             }).catch(next)
         }).catch(next);
     }
 
     public deleteOne(req: Request, res: Response, next: NextFunction) {
-        Product.findByIdAndRemove({ _id: req.params.id }).then((product) => {
-            res.json(product);
+        Order.findByIdAndRemove({ _id: req.params.id }).then((order) => {
+            res.json(order);
         }).catch(next);
     }
 
@@ -50,7 +50,7 @@ export class ProductRouter {
 
 }
 
-const productRouter = new ProductRouter();
-productRouter.routes();
+const orderRouter = new OrderRouter();
+orderRouter.routes();
 
-export default productRouter.router;
+export default orderRouter.router;

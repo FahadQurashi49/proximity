@@ -1,12 +1,12 @@
 import {Schema, model} from 'mongoose';
-import Shop from '../model/Shop';
+import shop from '../model/Shop';
 
 
-function getPrice(num){
+function getPrice(num: number): string {
     return (num/100).toFixed(2);
 }
 
-function setPrice(num){
+function setPrice(num: number): Number {
     return num*100;
 }
 
@@ -35,6 +35,9 @@ let ProductSchema: Schema = new Schema({
         type: Boolean,
         required: [true, 'inStock is required']
     }
+}, {
+    toObject : {getters: true},
+    toJSON : {getters: true}
 });
 
 export default model('product', ProductSchema);

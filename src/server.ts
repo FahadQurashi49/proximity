@@ -7,6 +7,7 @@ import * as mongoose from 'mongoose';
 import shopRouter from './router/ShopRouter';
 import customerRouter from './router/CustomerRouter';
 import productRouter from './router/ProductRouter';
+import orderRouter from './router/OrderRouter';
 
 // Creates and configures an ExpressJS web server.
 class Server {
@@ -42,6 +43,7 @@ class Server {
     this.express.use('/api/v1/shop', shopRouter);
     this.express.use('/api/v1/customer', customerRouter);
     this.express.use('/api/v1/product', productRouter);
+    this.express.use('/api/v1/order', orderRouter);
     this.express.use((err, req, res, next) => {
       let error = {
         error: err.message,

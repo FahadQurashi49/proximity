@@ -1,20 +1,20 @@
 import {Schema, model} from 'mongoose';
+import product from './Product';
+import customer from './Customer';
 
-function getPrice(num){
+function getPrice(num: number): string {
     return (num/100).toFixed(2);
 }
 
-function setPrice(num){
+function setPrice(num: number): Number {
     return num*100;
 }
 
+function getDate(date: any) {
+    return new Date(date).getTime();
+}
+
 let OrderSchema: Schema = new Schema({
-    name: {
-        type: String,
-        minlength: [2, 'Name must be of atleast 2 characters'],
-        maxlength: [50, 'Name must be of atmost 50 characters'],
-        required: [true, 'title is required']
-    },
     customer: {
         type: Schema.Types.ObjectId,
         ref: 'customer',
@@ -28,11 +28,13 @@ let OrderSchema: Schema = new Schema({
     },
     orderDate: {
         type: Date, // use Date.now()
-        required: [true, 'order date is required']
+        required: [true, 'order date is required'],
+        get: getDate
     },
     completionDate: {
         type: Date, // use Date.now()
-        required: [true, 'completion date is required']
+        required: false,
+        get: getDate
     },
     status: {
         type: Number,
@@ -49,6 +51,9 @@ let OrderSchema: Schema = new Schema({
             required: [true, 'quantity is required']
         }
     }]
+}, {
+    toObject : {getters: true},
+    toJSON : {getters: true}
 });
 
 export default model('order', OrderSchema);
