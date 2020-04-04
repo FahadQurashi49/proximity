@@ -20,6 +20,21 @@ export class ShopRouter {
         }).catch(next);
     }
 
+    public getNearBy(req: Request, res: Response, next: NextFunction) {
+        Shop.aggregate([
+            {
+              $geoNear: {
+                 near: { type: "Point", coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)] },
+                 distanceField: "dist.calculated",
+                 maxDistance: 500,
+                 spherical: true
+              }
+            }
+         ]).then((shops) => {
+            res.json(shops);
+        }).catch(next);
+    }
+
     public getOne(req: Request, res: Response, next: NextFunction) {
         Shop.findById(req.params.id).then((shop) => {
             res.json(shop);
@@ -43,6 +58,7 @@ export class ShopRouter {
     public routes() {
         this.router.post("/", this.createOne);
         this.router.get("/", this.getAll);
+        this.router.get("/nearme", this.getNearBy);
         this.router.get("/:id", this.getOne);
         this.router.put("/:id", this.updateOne);
         this.router.delete("/:id", this.deleteOne);

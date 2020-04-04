@@ -1,0 +1,83 @@
+[
+    {
+        "title": "chowrangi daleem",
+        "description": "tasty hot daleem",
+        "email": "akram@test.com",
+        "phone": "03011234587",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.882172, 67.152139]}
+    },
+	{
+        "title": "grace shop",
+        "description": "grocery shop",
+        "email": "waseem@test.com",
+        "phone": "03101234569",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.882260, 67.151677 ]}
+    },
+	{
+        "title": "subhan bakery",
+        "description": "fresh bakery items available",
+        "email": "shameem@test.com",
+        "phone": "03021238567",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.882674, 67.152235]}
+    },
+	{
+        "title": "hafizia toy shop",
+        "description": "1 to 10 year children toys",
+        "email": "iqbal@test.com",
+        "phone": "03451234867",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.882606, 67.154858 ]}
+    },
+	{
+        "title": "nafees tailor",
+        "description": "ladies taylor",
+        "email": "atif@test.com",
+        "phone": "03461239567",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.881847, 67.155116]}
+    },
+	{
+        "title": "zafar autos",
+        "description": "bike auto parts",
+        "email": "zia@test.com",
+        "phone": "03181200567",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.881827, 67.156570 ]}
+    },	
+	{
+        "title": "black umbrella",
+        "description": "good and new umbrellas",
+        "email": "faiz@test.com",
+        "phone": "03181208567",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.884889, 67.150944 ]}
+    },
+	{
+        "title": "pakwan center",
+        "description": "pakistani food itmes",
+        "email": "zaid@test.com",
+        "phone": "03181209567",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.884942, 67.150064 ]}
+    },
+	{
+        "title": "kiryana shop",
+        "description": "all types of kiryana available",
+        "email": "rehmat@test.com",
+        "phone": "03181208589",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.886821, 67.141754 ]}
+    },
+	{
+        "title": "electric shop",
+        "description": "all types of electronics items available",
+        "email": "shokat@test.com",
+        "phone": "03181209567",
+        "online": true,
+		"geometry": {"type": "point", "coordinates": [24.886928, 67.130049 ]}
+    }
+]
+// lng=24.882109&lat=67.154070

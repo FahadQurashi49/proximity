@@ -1,6 +1,8 @@
 import {Schema, model} from 'mongoose';
 import product from './Product';
 import customer from './Customer';
+import GeoSchema from './GeoSchema';
+
 
 function getPrice(num: number): string {
     return (num/100).toFixed(2);
@@ -50,7 +52,8 @@ let OrderSchema: Schema = new Schema({
             type: Number,
             required: [true, 'quantity is required']
         }
-    }]
+    }],
+    geometry: GeoSchema
 }, {
     toObject : {getters: true},
     toJSON : {getters: true}

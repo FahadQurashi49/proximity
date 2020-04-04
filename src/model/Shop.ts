@@ -1,4 +1,5 @@
 import {Schema, model} from 'mongoose';
+import GeoSchema from './GeoSchema';
 
 let validateEmail = (email) => {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -35,6 +36,7 @@ let ShopSchema: Schema = new Schema({
         required: [true, 'phone number is required'],
         dropDups: true
     },
+    geometry: GeoSchema
 
 });
 
